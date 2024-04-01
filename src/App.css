@@ -40,3 +40,44 @@
 .read-the-docs {
   color: #888;
 }
+
+.App {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.navbar,
+.footer {
+  padding: 1rem;
+  background-color: #ff5a5f;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+}
+
+.sidebar {
+  width: 200px;
+  padding: 1rem;
+  background-color: #484848;
+  opacity: 0.9;
+  color: white;
+}
+
+.main-content {
+  background-color: #d9d7d7;
+  flex: 1;
+  padding: 1rem;
+}
+
+.app-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.footer a {
+  text-decoration: none;
+  color: #000;
+}
