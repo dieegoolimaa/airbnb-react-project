@@ -1,0 +1,27 @@
+.list-item {
+  padding-bottom: 1rem;
+}
+
+.list-item-name {
+  font-weight: bold;
+}
+
+.list-item-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.list-item-details span {
+  color: green; /* or red based on isCompleted status */
+}
+
+.delete-button {
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
