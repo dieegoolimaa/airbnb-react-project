@@ -1,27 +1,62 @@
+
+ul {
+  display: flex;
+   flex-direction: column;
+    flex: 1;
+  align-items: flex-start;
+  justify-content: flex-start;
+  list-style-type: none; /* Remove default list bullets */
+  padding: 2px;
+  margin: 1px;
+  background-color: #f2f2f2; /* Light grey background */
+  border-radius: 8px; /* Rounded corners for the list */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  /* max-width: 800px; Set a max-width for the list */
+  margin: auto; /* Center the list horizontally */
+  width: 100%; /* Take full width of main-content */
+}
+
+
+
+li button:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+
 .list-item {
+  padding: 2px;
   padding-bottom: 1rem;
+  display: flex; /* Align children (name and details) in a row */
+  flex-direction: column; /* Stack them vertically */
+  border: 2px solid #0056b3; 
+  width: 100%; /* Ensure the list item takes full width of the ul */
 }
 
 .list-item-name {
+  padding: 2px;
   font-weight: bold;
+  display: flex;
+  justify-content:flex-start;
+  width: 100%; /* Ensure names take full width */
+  margin-bottom: 0.2rem; /* Give some space between the name and the details */
 }
 
 .list-item-details {
+  padding: 2px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  font-size: 0.9rem;
-}
-
-.list-item-details span {
-  color: green; /* or red based on isCompleted status */
+  align-items: center; /* Center items vertically */
+  width: 100%; /* Take the full width */
 }
 
 .delete-button {
   background: #ff4d4d;
   color: white;
   border: none;
-  padding: 0.5rem 1rem;
+  padding: 8px 12px; /* Adjust padding to match your design */
+  margin : 2px 10px;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 10px;
+  margin-left: auto; /* Push the button to the right */
 }
+
+/* No need for float: right; on the button */
