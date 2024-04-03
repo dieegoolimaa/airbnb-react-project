@@ -1,9 +1,12 @@
+import { Link } from "react-router-dom";
 function Navbar() {
   return (
     <nav className="navbar">
       <div className="app-name">Apartment Rentals</div>
-      {/* Add your logo image here */}
-      {/* <img src="logo.png" alt="App Logo" className="logo" /> */}
+      <div className="navigation-links">
+        <Link to="/">Dashboard</Link>
+        <Link to="/about">About</Link>
+      </div>
     </nav>
   );
 }

@@ -1,0 +1,64 @@
+import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import DataJSON from "../assets/rentals.json";
+import styles from "./ItemDetailsPage.module.css";
+
+const ItemDetailsPage = () => {
+  const { itemId } = useParams(); // This grabs the itemId from the URL
+  const [itemDetails, setItemDetails] = useState(null);
+
+  useEffect(() => {
+    // Simulate fetching the item details. In a real app, we might fetch from an API
+    const item = DataJSON.results.find((item) => item.id === itemId);
+    setItemDetails(item);
+  }, [itemId]);
+
+  // Display item details here (name, price, other properties)
+
+  return (
+    <div className={styles.container}>
+      {itemDetails ? (
+        <div className={styles.card}>
+          <h1>Item Details</h1>
+          <img
+            src={itemDetails.picture_url.url}
+            alt={itemDetails.name}
+            className={styles.image}
+          />
+          <h2>{itemDetails.name}</h2>
+          <p>
+            <strong>Location:</strong> {itemDetails.city}, {itemDetails.country}
+          </p>
+          <p>
+            <strong>Hosted by:</strong> {itemDetails.host_name} since{" "}
+            {itemDetails.host_since}
+          </p>
+          <p>
+            <strong>Description:</strong> {itemDetails.description}
+          </p>
+          <p>
+            <strong>Space:</strong> {itemDetails.space}
+          </p>
+          <p>
+            <strong>Price:</strong> ${itemDetails.price} per night
+          </p>
+          <p>
+            <strong>Accommodates:</strong> {itemDetails.accommodates} guests
+          </p>
+          <p>
+            <strong>Bedrooms:</strong> {itemDetails.bedrooms} |{" "}
+            <strong>Beds:</strong> {itemDetails.beds} |{" "}
+            <strong>Bathrooms:</strong> {itemDetails.bathrooms}
+          </p>
+          <p>
+            <strong>Rating:</strong> {itemDetails.review_scores_rating}
+          </p>
+        </div>
+      ) : (
+        <p>Loading...</p>
+      )}
+    </div>
+  );
+};
+
+export default ItemDetailsPage;

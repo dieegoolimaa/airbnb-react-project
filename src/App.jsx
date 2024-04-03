@@ -1,30 +1,27 @@
 import "./App.css";
-import React, { useState } from "react";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 import Footer from "./components/Footer";
-import List from "./components/List";
-import DataJSON from "./assets/rentals.json";
+import { Routes, Route } from "react-router-dom";
+import Dashboard from "./components/Dashboard";
+import About from "./components/About";
+import ItemDetailsPage from "./components/ItemDetailsPage";
+import NotFound from "./components/NotFound";
 
 function App() {
-  const initialItems = DataJSON.results;
-  const [items, setItems] = useState(initialItems); // Initialize state with results
-
-  const deleteItem = (id) => {
-    // Update state to filter out the item with the specified id
-    setItems(items.filter((item) => item.id !== id));
-  };
-
   return (
     <div className="App">
       <Navbar />
       <div className="content">
         <Sidebar />
         <div className="main-content">
-          <h1>Welcome to My App!</h1>
-          <p>This is the home page content.</p>
-
-          <List items={items} deleteItem={deleteItem} />
+          <Routes>
+            <Route path="/" element={<Dashboard />} />{" "}
+            {/* Dashboard as default */}
+            <Route path="/items/:itemId" element={<ItemDetailsPage />} />{" "}
+            <Route path="/about" element={<About />} />
+            <Route path="*" element={<NotFound />} />{" "}
+          </Routes>
         </div>
       </div>
       <Footer />

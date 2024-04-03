@@ -1,4 +1,4 @@
-import ListItem from "./ListItem.jsx";
+import ListItem from "../components/ListItem";
 
 const List = ({ items, deleteItem }) => {
   //   console.log(deleteItem); // Should log a function

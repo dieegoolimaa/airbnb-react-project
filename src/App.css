@@ -61,15 +61,15 @@
 }
 
 .sidebar {
-  width: 200px;
-  padding: 1rem;
+  width: 50px;
+  padding: 0.2rem;
   background-color: #484848;
   opacity: 0.9;
   color: white;
 }
 
 .main-content {
-  display:flex;
+  display: flex;
   flex-direction: column;
   background-color: #d9d7d7;
   width: 100%;
@@ -80,9 +80,38 @@
 .app-name {
   font-size: 1.5rem;
   font-weight: bold;
+  color: white;
 }
 
 .footer a {
   text-decoration: none;
   color: #000;
+}
+
+.item-details-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.item-details-card {
+  max-width: 600px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px;
+  background: white;
+}
+
+.item-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.navigation-links {
+  display: flex;
+  justify-content: center;
+  /* justify-content: space-evenly; */
 }
