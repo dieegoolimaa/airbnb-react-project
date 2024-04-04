@@ -40,8 +40,16 @@
   max-width: 320px;
 }
 
+/* Add or update these styles in your Form.module.css */
 .textarea {
-  resize: vertical;
+  width: 100%; /* Make textarea width consistent with other inputs */
+  height: 150px; /* Set a fixed height */
+  padding: 10px; /* Padding inside the textarea */
+  border: 1px solid #ccc; /* Consistent border with other inputs */
+  border-radius: 4px; /* Rounded corners like other inputs */
+  font-family: inherit; /* Ensures font consistency */
+  font-size: 16px; /* Readable font size */
+  resize: vertical; /* Allows vertical resizing only */
 }
 
 .button {

@@ -7,13 +7,15 @@ const Form = ({ initialData, onSubmit, allData }) => {
 
   // Use useEffect to ensure that an ID is set if not already present in the initialData
   useEffect(() => {
-    // If initialData is empty, implying adding a new item, pick random data for defaults
-    if (Object.keys(initialData).length === 0 && allData.length > 0) {
+    if (
+      Object.keys(initialData).length === 0 &&
+      allData &&
+      allData.length > 0
+    ) {
       const randomIndex = Math.floor(Math.random() * allData.length);
       const randomData = { ...allData[randomIndex] };
       delete randomData.id; // Remove the id from the selected random data
       randomData.id = uuidv4(); // Assign a new UUID for this form instance
-
       setFormData(randomData);
     }
   }, [initialData, allData]);
@@ -26,6 +28,35 @@ const Form = ({ initialData, onSubmit, allData }) => {
     }));
   };
 
+  const formFields = [
+    { name: "name", label: "Name", type: "text" },
+    { name: "city", label: "City", type: "text" },
+    { name: "country", label: "Country", type: "text" },
+    { name: "price", label: "Price", type: "number" },
+    { name: "accommodates", label: "Accommodates", type: "number" },
+    { name: "bedrooms", label: "Bedrooms", type: "number" },
+    { name: "beds", label: "Beds", type: "number" },
+    { name: "bathrooms", label: "Bathrooms", type: "number" },
+    // Add other fields as needed
+  ];
+
+  // Correctly use formFields for mapping
+  const generatedFormFields = formFields.map(
+    ({ name, label, type }) =>
+      formData.hasOwnProperty(name) ? (
+        <label key={name} className={styles.label}>
+          {label}:
+          <input
+            type={type}
+            name={name}
+            value={formData[name]}
+            onChange={handleChange}
+            className={styles.input}
+          />
+        </label>
+      ) : null // Skip fields not present in formData
+  );
+
   const handleSubmit = (event) => {
     event.preventDefault();
     onSubmit(formData); // Pass the form data back to the parent component
@@ -33,93 +64,14 @@ const Form = ({ initialData, onSubmit, allData }) => {
 
   return (
     <form onSubmit={handleSubmit} className={styles.formContainer}>
-      <label className={styles.label}>
-        Name:
-        <input
-          type="text"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          className={styles.input}
-        />
-      </label>
-      <label className={styles.label}>
-        City:
-        <input
-          type="text"
-          name="city"
-          value={formData.city}
-          onChange={handleChange}
-          className={styles.input}
-        />
-      </label>
-      <label className={styles.label}>
-        Country:
-        <input
-          type="text"
-          name="country"
-          value={formData.country}
-          onChange={handleChange}
-          className={styles.input}
-        />
-      </label>
-      <label className={styles.label}>
-        Price:
-        <input
-          type="number"
-          name="price"
-          value={formData.price}
-          onChange={handleChange}
-          className={styles.input}
-        />
-      </label>
-      <label className={styles.label}>
-        Accommodates:
-        <input
-          type="number"
-          name="accommodates"
-          value={formData.accommodates}
-          onChange={handleChange}
-          className={styles.input}
-        />
-      </label>
-      <label className={styles.label}>
-        Bedrooms:
-        <input
-          type="number"
-          name="bedrooms"
-          value={formData.bedrooms}
-          onChange={handleChange}
-          className={styles.input}
-        />
-      </label>
-      <label className={styles.label}>
-        Beds:
-        <input
-          type="number"
-          name="beds"
-          value={formData.beds}
-          onChange={handleChange}
-          className={styles.input}
-        />
-      </label>
-      <label className={styles.label}>
-        Bathrooms:
-        <input
-          type="number"
-          name="bathrooms"
-          value={formData.bathrooms}
-          onChange={handleChange}
-          className={styles.input}
-        />
-      </label>
+      {generatedFormFields}
       <label className={styles.label}>
         Description:
         <textarea
           name="description"
-          value={formData.description}
+          value={formData.description || ""}
           onChange={handleChange}
-          className={styles.input}
+          className={styles.textarea} // Updated class name for styling
         />
       </label>
       <button type="submit" className={styles.button}>
