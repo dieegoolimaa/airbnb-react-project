@@ -1,20 +1,19 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import DataJSON from "../assets/rentals.json";
 import styles from "./ItemDetailsPage.module.css";
 
-const ItemDetailsPage = () => {
+const ItemDetailsPage = ({ items }) => {
   const { itemId } = useParams(); // This grabs the itemId from the URL
   const [itemDetails, setItemDetails] = useState(null);
 
   useEffect(() => {
     // Simulate fetching the item details. In a real app, we might fetch from an API
-    const item = DataJSON.results.find((item) => item.id === itemId);
+    const item = items.find((item) => item.id === itemId);
     setItemDetails(item);
   }, [itemId]);
 
   // Display item details here (name, price, other properties)
-
+  console.log(itemDetails);
   return (
     <div className={styles.container}>
       {itemDetails ? (

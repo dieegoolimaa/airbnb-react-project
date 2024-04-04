@@ -1,18 +1,15 @@
+// Dashboard.js
+
+import React from "react";
 import List from "../components/List";
-import DataJSON from "../assets/rentals.json";
-import { useState } from "react";
+import { Link } from "react-router-dom";
 
-function Dashboard() {
-  const initialItems = DataJSON.results;
-  const [items, setItems] = useState(initialItems); // Initialize state with results
-
-  const deleteItem = (id) => {
-    // Update state to filter out the item with the specified id
-    setItems(items.filter((item) => item.id !== id));
-  };
-
+function Dashboard({ items, deleteItem }) {
   return (
     <>
+      <Link to="/addnewitem">
+        <button type="button">Add Item</button>
+      </Link>
       <List items={items} deleteItem={deleteItem} />
     </>
   );
