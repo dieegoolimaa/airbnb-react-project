@@ -1,0 +1,48 @@
+/* Sidebar.module.css */
+
+.sidebar {
+    width: 150px;
+    padding: 0.2rem;
+    background-color: #484848;
+    opacity: 0.9;
+    color: rgba(255, 255, 255, 0.719);
+  }
+  
+  .sidebar h3 {
+    /* Styles for the sidebar title */
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    border: 2px solid #ccc; /* Example border */
+    padding: 0.5rem;
+    border-radius: 0.5rem; /* Rounded corners */
+    background-color: #bb94088d; /* Light background */
+    transition: background-color 0.2s; /* Smooth transition for hover effect */
+  }
+  
+  .sidebar li:hover {
+    background-color: #e2e2e2; /* Slightly darker background on hover */
+  }
+  
+  .sidebar img {
+    width: 40px; /* Small thumbnail size */
+    height: 40px;
+    object-fit: cover;
+    border-radius: 0.5rem; /* Rounded corners for images */
+    margin-right: 0.5rem;
+  }
+  
+  .sidebar a {
+    text-decoration: none;
+    color: inherit; /* Inherit text color from parent */
+    display: flex; /* Ensure flex styles apply to link and children */
+  }
+  

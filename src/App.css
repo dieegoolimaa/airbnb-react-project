@@ -62,13 +62,7 @@
 
 }
 
-.sidebar {
-  width: 150px;
-  padding: 0.2rem;
-  background-color: #484848;
-  opacity: 0.9;
-  color: white;
-}
+
 
 .main-content {
   display: flex;
