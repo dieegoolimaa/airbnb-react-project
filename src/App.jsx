@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useParams } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
@@ -21,24 +21,32 @@ function App() {
 
   const addItem = (newItem) => {
     // Function to add a new item, which can be passed to AddNewItem
-    setItems([ { ...newItem, isNew: true },...items]);
+    setItems([{ ...newItem, isNew: true }, ...items]);
   };
 
+  const updateItem = (updatedItem) => {
+    // Function to update an existing item
+    setItems(
+      items.map((item) =>
+        item.id === updatedItem.id ? { ...item, ...updatedItem } : item
+      )
+    );
+  };
 
   const markItemsAsOld = () => {
-    const updatedItems = items.map(item => {
+    const updatedItems = items.map((item) => {
       return { ...item, isNew: false };
     });
     setItems(updatedItems);
   };
-  
-  const newItems = items.filter(item => item.isNew);
+
+  const newItems = items.filter((item) => item.isNew);
 
   return (
     <div className="App">
       <Navbar />
       <div className="content">
-      <Sidebar newItems={newItems} markItemsAsOld={markItemsAsOld} />
+        <Sidebar newItems={newItems} markItemsAsOld={markItemsAsOld} />
         <div className="main-content">
           <Routes>
             <Route
@@ -53,6 +61,17 @@ function App() {
               path="/addnewitem"
               element={<AddNewItem addItem={addItem} allData={items} />}
             />
+            <Route
+              path="/items/edit/:itemId"
+              element={
+                <AddNewItem
+                  addItem={addItem}
+                  updateItem={updateItem}
+                  allData={items}
+                />
+              }
+            />
+
             <Route path="/about" element={<About />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

@@ -19,3 +19,9 @@
   border-radius: 8px;
   margin-bottom: 20px;
 }
+
+.editButton {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}

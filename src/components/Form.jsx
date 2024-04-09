@@ -37,6 +37,7 @@ const Form = ({ initialData, onSubmit, allData }) => {
     { name: "bedrooms", label: "Bedrooms", type: "number" },
     { name: "beds", label: "Beds", type: "number" },
     { name: "bathrooms", label: "Bathrooms", type: "number" },
+    {name: "host_name", label: "Host Name", type: "text"}
     // Add other fields as needed
   ];
 
@@ -51,6 +52,7 @@ const Form = ({ initialData, onSubmit, allData }) => {
             name={name}
             value={formData[name]}
             onChange={handleChange}
+            required
             className={styles.input}
           />
         </label>
@@ -71,6 +73,7 @@ const Form = ({ initialData, onSubmit, allData }) => {
           name="description"
           value={formData.description || ""}
           onChange={handleChange}
+          required
           className={styles.textarea} // Updated class name for styling
         />
       </label>

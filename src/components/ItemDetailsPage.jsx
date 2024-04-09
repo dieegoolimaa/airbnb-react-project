@@ -1,16 +1,24 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import styles from "./ItemDetailsPage.module.css";
+import { useNavigate } from "react-router-dom"
 
 const ItemDetailsPage = ({ items }) => {
   const { itemId } = useParams(); // This grabs the itemId from the URL
   const [itemDetails, setItemDetails] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Simulate fetching the item details. In a real app, we might fetch from an API
     const item = items.find((item) => item.id === itemId);
     setItemDetails(item);
   }, [itemId]);
+
+  const handleEdit = () => {
+    navigate(`/items/edit/${itemId}`);
+  };
+
+
 
   // Display item details here (name, price, other properties)
   console.log(itemDetails);
@@ -52,6 +60,10 @@ const ItemDetailsPage = ({ items }) => {
           <p>
             <strong>Rating:</strong> {itemDetails.review_scores_rating}
           </p>
+
+          <button type="button" onClick={handleEdit} className={styles.editButton}>
+            Edit Item
+          </button>
         </div>
       ) : (
         <p>Loading...</p>

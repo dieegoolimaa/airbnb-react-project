@@ -1,0 +1,58 @@
+/* Navbar.module.css */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #588bfb;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.1);
+    padding: 0 2rem;
+    height: 60px;
+  }
+  
+  .appName {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .navigationLinks {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .navigationLinks a {
+    color: #333;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.3rem;
+    transition: background-color 0.2s, color 0.2s;
+  }
+  
+  .navigationLinks a:hover, .navigationLinks a:focus {
+    background-color: #e7e7e7;
+    color: #000;
+  }
+  
+  @media (max-width: 768px) {
+    .navbar {
+      flex-direction: column;
+      padding: 1rem;
+    }
+  
+    .appName {
+      margin-bottom: 1rem;
+    }
+  
+    .navigationLinks {
+      flex-direction: column;
+      width: 100%;
+    }
+  
+    .navigationLinks a {
+      width: 100%;
+      text-align: center;
+    }
+  }
+  
