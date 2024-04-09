@@ -21,14 +21,24 @@ function App() {
 
   const addItem = (newItem) => {
     // Function to add a new item, which can be passed to AddNewItem
-    setItems([...items, newItem]);
+    setItems([ { ...newItem, isNew: true },...items]);
   };
+
+
+  const markItemsAsOld = () => {
+    const updatedItems = items.map(item => {
+      return { ...item, isNew: false };
+    });
+    setItems(updatedItems);
+  };
+  
+  const newItems = items.filter(item => item.isNew);
 
   return (
     <div className="App">
       <Navbar />
       <div className="content">
-        <Sidebar />
+      <Sidebar newItems={newItems} markItemsAsOld={markItemsAsOld} />
         <div className="main-content">
           <Routes>
             <Route

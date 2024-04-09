@@ -1,0 +1,73 @@
+/* ListItem.module.css */
+
+.listItemLink {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .listItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: white;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .listItem:hover {
+    background-color: #f8f8f8;
+  }
+  
+  .listItemName {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .listItemDetails {
+    display: flex;
+    align-items: center;
+  }
+  
+  .status {
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.2rem;
+    font-weight: bold;
+  }
+  
+  .status.completed {
+    color: #4caf50;
+  }
+  
+  .status.notCompleted {
+    color: #f44336;
+  }
+  
+  .deleteButton {
+    background-color: #ff5252;
+    color: white;
+    border: none;
+    border-radius: 0.3rem;
+    padding: 0.5rem 1rem;
+    margin-left: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .deleteButton:hover {
+    background-color: #ff1744;
+  }
+  
+
+  
+.image {
+    width: 100px; /* Adjust the width as needed */
+    height: 100px; /* Adjust the height as needed */
+    border-radius: 0.5rem; /* Rounded corners for the image */
+    object-fit: cover; /* This will cover the area without stretching the image */
+    margin-right: 1rem; /* Space between the image and the text */
+  }

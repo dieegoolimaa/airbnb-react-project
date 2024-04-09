@@ -1,8 +1,9 @@
 #root {
+  --nav-height: 180px; /* Replace with your Navbar's actual height */
+  --footer-height:0px; /* Replace with your Footer's actual height */
   max-width: 2480px;
   width: 100%;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
 }
 
@@ -56,12 +57,13 @@
 }
 
 .content {
-  flex: 1;
   display: flex;
+  flex: 1;
+
 }
 
 .sidebar {
-  width: 50px;
+  width: 150px;
   padding: 0.2rem;
   background-color: #484848;
   opacity: 0.9;
@@ -73,9 +75,13 @@
   flex-direction: column;
   background-color: #d9d7d7;
   width: 100%;
-  flex: 1;
+  flex: 1; /* This makes sure that .main-content will fill the container */
   padding: 1rem;
+  overflow-y: auto; /* Adds a vertical scrollbar when content overflows */
+  height: calc(100vh - var(--nav-height) - var(--footer-height)); /* Adjust the height based on the nav and footer height */
+  margin-bottom: var(--footer-height); /* if footer should be inside the scroll, remove this line */
 }
+
 
 .app-name {
   font-size: 1.5rem;

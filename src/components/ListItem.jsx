@@ -1,4 +1,4 @@
-import "../components/ListItem.css"; // Make sure to import the CSS file
+import styles from "../components/ListItem.module.css";
 import { Link } from "react-router-dom";
 
 const ListItem = ({ item, deleteItem }) => {
@@ -8,17 +8,22 @@ const ListItem = ({ item, deleteItem }) => {
   };
 
   return (
-    <Link to={`/items/${item.id}`} className="list-item-link">
-      <li className="list-item">
-        <div className="list-item-name">{item.name}</div>
-        <div className="list-item-details">
-          <span style={{ color: item.isCompleted ? "green" : "red" }}>
-            {item.price < 100 ? "Completed ✅" : "Not Completed ❌"}
+    <Link to={`/items/${item.id}`} className={styles.listItemLink}>
+      <li className={styles.listItem}>
+      <img
+            src={item.picture_url.url}
+            alt={item.name}
+            className={styles.image}
+          />
+        <div className={styles.listItemName}>{item.name}</div>
+        <div className={styles.listItemDetails}>
+          <span className={`${styles.status} ${item.isCompleted ? styles.completed : styles.notCompleted}`}>
+            {item.price < 100 ? "Super Deal ! ✅" : "Normal ❌"}
           </span>
           <button
             type="button"
             onClick={handleDelete}
-            className="delete-button"
+            className={styles.deleteButton}
           >
             Delete Item
           </button>

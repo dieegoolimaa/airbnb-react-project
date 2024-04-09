@@ -1,4 +1,3 @@
-// Dashboard.js
 
 import React from "react";
 import List from "../components/List";
